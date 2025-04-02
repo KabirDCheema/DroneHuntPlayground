@@ -19,6 +19,7 @@ vel_max = 200
 
 des_alt = -1.5
 send_ned_position(0, 0, des_alt)
+time.sleep(5)
 
 while True:
     current_altitude = vehicle.location.global_relative_frame.alt
