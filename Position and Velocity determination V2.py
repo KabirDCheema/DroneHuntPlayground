@@ -31,8 +31,8 @@ while True:
             vel_check4 = np.mean(np.abs(distance_stack[:, -1] - distance_stack[:,-2])/dt)
             vel_check = np.mean(np.array([vel_check1, vel_check2, vel_check3, vel_check4]))
         speed_des = np.min(2*vel_check, vel_max)
-        speed_des = np.max(speed_des, 0)
-        vel_des = speed_des * pos_des
+        speed_des = np.max(speed_des, 0) / 100
+        vel_des = speed_des * np.array([0, 1, 0])
         if speed_des > 0:
             send_ned_position_and_velocity(pos_des[0], pos_des[1], pos_des[2], vel_des[0], vel_des[1], vel_des[2])
         else:
