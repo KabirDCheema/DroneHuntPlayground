@@ -17,6 +17,9 @@ distance_stack = np.zeros(3, 1)
 dt = 1/25
 vel_max = 200
 
+des_alt = -1.5
+send_ned_position(0, 0, des_alt)
+
 while True:
     current_altitude = vehicle.location.global_relative_frame.alt
     if min(sonar1.distance, sonar2.distance, sonar3.distance) <= 100:
